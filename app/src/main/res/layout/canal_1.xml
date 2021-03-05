@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#000D7E"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#4B7CA3"/>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="9dp">
+
+        <WebView
+          android:id="@+id/wv"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
+
+
+        </WebView>
+
+            <FrameLayout
+                android:id="@+id/cvc"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+      </androidx.cardview.widget.CardView>
+
+
+
+</LinearLayout>

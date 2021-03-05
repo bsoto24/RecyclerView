@@ -1,0 +1,52 @@
+package com.example.myapplication;
+
+public class Canales {
+
+    private String nombre;
+    private String info;
+    private int foto;
+    private int id;
+
+    public Canales() {
+
+    }
+
+    public Canales(int id, String nombre, String info, int foto) {
+        this.nombre = nombre;
+        this.info = info;
+        this.foto = foto;
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public int getFoto() {
+        return foto;
+    }
+
+    public void setFoto(int foto) {
+        this.foto = foto;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+}
