@@ -10,15 +10,18 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 
 public class Canal_1 extends AppCompatActivity {
 
     WebView wv;
     FrameLayout cvc;
+    private CardView cvContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,8 @@ public class Canal_1 extends AppCompatActivity {
         setContentView(R.layout.canal_1);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
+        cvContainer = findViewById(R.id.cv_container);
+
         if (orientation == Configuration.ORIENTATION_PORTRAIT) {
             // Portrait configuration
             setSupportActionBar(toolbar);
@@ -43,6 +48,10 @@ public class Canal_1 extends AppCompatActivity {
             getSupportActionBar().setTitle("WebView");
         } else {
             // Landscape configuration
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+            layoutParams.setMargins(0, 0, 0, 0);
+            cvContainer.setLayoutParams(layoutParams);
             toolbar.setVisibility(View.GONE);
         }
 
