@@ -10,13 +10,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class CanalesAdapter extends RecyclerView.Adapter<CanalesAdapter.ViewHolderCanales> implements View.OnClickListener{
+public class CanalesAdapter extends RecyclerView.Adapter<CanalesAdapter.ViewHolderCanales> {
 
     ArrayList<Canales> listaCanales;
-    private View.OnClickListener listener;
+    OnCanalesClick onCanalesClick;
 
-    public CanalesAdapter(ArrayList<Canales> listaCanales) {
+    public CanalesAdapter(ArrayList<Canales> listaCanales, OnCanalesClick onCanalesClick) {
         this.listaCanales = listaCanales;
+        this.onCanalesClick = onCanalesClick;
     }
 
     @Override
@@ -29,8 +30,6 @@ public class CanalesAdapter extends RecyclerView.Adapter<CanalesAdapter.ViewHold
         }
 
         View view= LayoutInflater.from(parent.getContext()).inflate(layout,null,false);
-
-        view.setOnClickListener(this);
 
         return new ViewHolderCanales(view);
     }
@@ -51,17 +50,6 @@ public class CanalesAdapter extends RecyclerView.Adapter<CanalesAdapter.ViewHold
         return listaCanales.size();
     }
 
-    public void setOnClickListener(View.OnClickListener listener){
-        this.listener=listener;
-    }
-
-    @Override
-    public void onClick(View view) {
-        if (listener!=null){
-            listener.onClick(view);
-        }
-    }
-
     public class ViewHolderCanales extends RecyclerView.ViewHolder {
 
         TextView etiNombre,etiInformacion;
@@ -69,6 +57,7 @@ public class CanalesAdapter extends RecyclerView.Adapter<CanalesAdapter.ViewHold
 
         public ViewHolderCanales(View itemView) {
             super(itemView);
+            itemView.setOnClickListener(view -> onCanalesClick.onClick(listaCanales.get(getAdapterPosition())));
             etiNombre= (TextView) itemView.findViewById(R.id.idNombre);
             if (List_to_Grid.visualizacion== List_to_Grid.LIST){
                 etiInformacion= (TextView) itemView.findViewById(R.id.idInfo);
